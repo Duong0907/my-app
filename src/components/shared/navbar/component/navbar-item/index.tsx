@@ -1,26 +1,23 @@
 'use client';
 
 import classNames from 'classnames';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { MouseEventHandler, useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 
-export const NavBarItem = ({ title, url }: { title: string; url: string }) => {
-  const router = useRouter();
-
+export const NavBarItem = ({ title, href }: { title: string; href: string }) => {
   const pathname: string = usePathname();
 
-  const handleClick: MouseEventHandler = useCallback(() => router.push(url), [router]);
-
-  const isActive: Boolean = useMemo(() => pathname === url, [pathname, url]);
+  const isActive: Boolean = useMemo(() => pathname === href, [pathname, href]);
 
   return (
-    <li
-      className={classNames('uppercase p-[16px] hover:bg-[#1A1A1A] hover:text-[#fff] cursor-pointer select-none', {
+    <Link
+      className={classNames('inline-block uppercase p-4 hover:bg-[#1A1A1A] hover:text-white cursor-pointer select-none', {
         'text-[#3F51B5]': isActive,
       })}
-      onClick={handleClick}
+      href={href}
     >
       {title}
-    </li>
+    </Link>
   );
 };

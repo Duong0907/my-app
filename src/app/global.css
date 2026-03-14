@@ -1,20 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import 'tailwindcss';
 
 @custom-variant dark (&:is(.dark *));
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-*,
-html,
-body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 :root {
   --background: oklch(1 0 0);
@@ -130,6 +119,10 @@ body {
 @layer base {
   * {
     @apply border-border outline-ring/50;
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
   body {
     @apply bg-background text-foreground;
