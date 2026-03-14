@@ -15,9 +15,9 @@ export function NavBarItem({ title, href }: { title: string; href: string }) {
   return (
     <Link
       className={classNames(
-        'inline-block uppercase p-5 hover:bg-foreground hover:text-background cursor-pointer select-none w-full text-center',
+        'inline-block py-4 px-2 cursor-pointer select-none w-full text-center text-foreground border-b hover:border-foreground',
         {
-          'text-chart-4': isActive,
+          'border-b-chart-4! text-chart-4!': isActive,
         },
       )}
       href={href}

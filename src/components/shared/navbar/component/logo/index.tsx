@@ -1,8 +1,6 @@
-import Image from 'next/image';
-import logoIcon from '/public/logo/logo.svg';
-import { ROOT_URL } from '@/utils/constant/url';
+import { ROOT_URL } from '@/lib/url';
 import Link from 'next/link';
-import { EventHandler, MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
 
 type LogoProps = { onClick?: MouseEventHandler<HTMLDivElement> };
 
@@ -10,7 +8,7 @@ export function Logo({ onClick }: LogoProps) {
   return (
     <div className="logo-wrapper flex justify-center" onClick={onClick}>
       <Link href={ROOT_URL}>
-        <Image src={logoIcon} alt="logo" />
+        <h1 className="text-foreground bg-background">DUONG PHAN</h1>
       </Link>
     </div>
   );
