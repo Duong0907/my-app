@@ -14,7 +14,7 @@ export function Icon({ name, size = 'default', variant = 'default', className }:
     <span
       className={cn('material-symbols-outlined', className, {
         'icon-filled': variant === 'filled',
-        '!text-sm': size === 'sm',
+        'text-sm!': size === 'sm',
       })}
     >
       {name}

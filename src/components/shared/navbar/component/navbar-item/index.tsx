@@ -1,8 +1,9 @@
 'use client';
 
+import { Typography } from '@/components/ui/typography';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 
 export function NavBarItem({ title, href }: { title: string; href: string }) {
@@ -22,7 +23,9 @@ export function NavBarItem({ title, href }: { title: string; href: string }) {
       )}
       href={href}
     >
-      {title}
+      <Typography variant="body" weight="regular">
+        {title}
+      </Typography>
     </Link>
   );
 }

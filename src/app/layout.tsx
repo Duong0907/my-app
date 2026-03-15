@@ -14,13 +14,13 @@ const sourceSerif4 = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: "Duong' website",
-  description: 'This page is created by Duong',
+  title: 'Duong Phan',
+  description: 'Created by Duong',
 };
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="root-layout text-[#1A1A1A] source-serif-4-regular space-y-18">
+    <div className="root-layout text-foreground source-serif-4-regular space-y-18">
       <NavBar />
       {children}
       <Footer />

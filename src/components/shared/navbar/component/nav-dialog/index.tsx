@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/components/ui/navigation-menu';
 import { NavBarItem } from '../navbar-item';
-import { ABOUT_URL, BLOG_URL, ROOT_URL } from '@/lib/url';
 
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { Logo } from '../logo';
@@ -30,8 +29,8 @@ export function NavDialog() {
         </DrawerHeader>
         <NavigationMenu orientation="vertical" className="max-w-none">
           <NavigationMenuList aria-orientation="vertical" className="flex-col">
-            {map(navConfig, (config) => (
-              <NavigationMenuItem onClick={closeDrawer}>
+            {map(navConfig, (config, index) => (
+              <NavigationMenuItem onClick={closeDrawer} key={index}>
                 <NavBarItem href={config.url} title={config.title}></NavBarItem>
               </NavigationMenuItem>
             ))}

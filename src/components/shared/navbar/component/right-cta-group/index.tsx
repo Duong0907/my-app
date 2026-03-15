@@ -2,6 +2,7 @@
 
 import { NavDialog } from '../nav-dialog';
 import { ThemeSwitch } from '../theme-switch';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export function RightCTAGroup() {
   return (
@@ -12,6 +13,10 @@ export function RightCTAGroup() {
       <div className="h-8 flex items-center">
         <ThemeSwitch />
       </div>
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarFallback>Duong Phan</AvatarFallback>
+      </Avatar>
     </div>
   );
 }
