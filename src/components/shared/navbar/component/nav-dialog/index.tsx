@@ -21,7 +21,7 @@ export function NavDialog() {
           <Icon name="menu" className="text-foreground" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="p-8">
         <DrawerHeader>
           <DrawerTitle>
             <Logo onClick={closeDrawer} />
