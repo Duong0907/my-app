@@ -1,12 +1,7 @@
-'use client';
-
 import './global.css';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { Typography } from '@/components/ui/typography';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,10 +27,8 @@ export default function GlobalNotFound() {
             <Typography variant="body" weight="light" className="text-gray-400 max-w-lg text-center">
               You may go to the wrong place :)
             </Typography>
-            <Button
-              onClick={() => {
-                window.location.href = '/';
-              }}
+            <a
+              href="/"
               className="group flex items-center gap-1 bg-white hover:bg-gray-200 px-7 py-2.5 text-gray-800 rounded-full mt-10 font-medium active:scale-95 transition-all"
             >
               Back to Home
@@ -55,7 +48,7 @@ export default function GlobalNotFound() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </Button>
+            </a>
           </div>
         </div>
       </body>
