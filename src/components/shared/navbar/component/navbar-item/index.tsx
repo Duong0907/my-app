@@ -1,10 +1,9 @@
 'use client';
 
 import { Typography } from '@/components/ui/typography';
+import { Link, usePathname } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import classNames from 'classnames';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 
 export function NavBarItem({ title, href }: { title: string; href: string }) {

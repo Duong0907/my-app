@@ -2,10 +2,14 @@ import { NavBar } from '@/components/shared/navbar';
 import type { Metadata } from 'next';
 import './global.css';
 
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { Source_Serif_4, Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from 'next-themes';
 import { Footer } from '@/components/shared/footer';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
+import { getMessages } from 'next-intl/server';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -20,7 +24,7 @@ export const metadata: Metadata = {
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="root-layout text-foreground source-serif-4-regular space-y-18">
+    <div className="root-layout text-foreground source-serif-4-regular space-y-18 px-3">
       <NavBar />
       {children}
       <Footer />
@@ -28,11 +32,21 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   return (
     <html lang="en" className={cn('font-sans', geist.variable)}>
       <head>
@@ -45,9 +59,11 @@ export default function RootLayout({
       </head>
 
       <body className={sourceSerif4.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Layout>{children}</Layout>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Layout>{children}</Layout>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 import { Typography } from '@/components/ui/typography';
+import { Link } from '@/i18n/routing';
 import { ROOT_URL } from '@/lib/url';
-import Link from 'next/link';
 import { MouseEventHandler } from 'react';
 
 type LogoProps = { onClick?: MouseEventHandler<HTMLDivElement> };

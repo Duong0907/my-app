@@ -1,0 +1,12 @@
+{
+    "home": {
+        "title": "Software Engineer",
+        "description": "Passionate about building seamless digital products through end-to-end"
+    },
+    "navbar": {
+        "home": "Home",
+        "projects": "Projects",
+        "aboutMe": "About me",
+        "blog": "Blog"
+    }
+}

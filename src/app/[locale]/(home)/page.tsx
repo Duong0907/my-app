@@ -1,7 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Typography } from '@/components/ui/typography';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 
 const SOCIAL_ICON_SIZE = 28;
 
@@ -37,6 +38,8 @@ const SocialIcon = ({
 };
 
 export default function HomePage() {
+  const t = useTranslations('home');
+
   return (
     <>
       <div className="home-page flex flex-col items-center gap-7">
@@ -50,10 +53,10 @@ export default function HomePage() {
           </Typography>
         </div>
         <Typography variant="h4" weight="light">
-          Software Engineer
+          {t('title')}
         </Typography>
         <Typography className="text-center max-w-[500px]" variant="h4" weight="light">
-          Passionate about building seamless digital products through end-to-end
+          {t('description')}
         </Typography>
         <div className="social-group flex gap-2">
           <SocialIcon
