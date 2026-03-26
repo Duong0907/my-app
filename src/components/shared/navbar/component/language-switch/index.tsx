@@ -13,7 +13,7 @@ export function LanguageSwitch() {
   const pathname = usePathname();
   const locale = useLocale();
 
-  const handleChangeLocale = (value: Boolean) => {
+  const handleChangeLocale = (value: boolean) => {
     startTransition(() => {
       const nextLocale = value ? LOCALE.VI : LOCALE.EN;
       router.replace(pathname, { locale: nextLocale });

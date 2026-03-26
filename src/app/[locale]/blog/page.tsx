@@ -1,7 +1,12 @@
+import { SectionHeader } from '@/components/shared/section-header';
+import { useTranslations } from 'next-intl';
+
 export default function BlogPage() {
+  const t = useTranslations('blog');
+
   return (
     <>
-      <p>Blog page</p>
+      <SectionHeader>{t('title')}</SectionHeader>
     </>
   );
 }

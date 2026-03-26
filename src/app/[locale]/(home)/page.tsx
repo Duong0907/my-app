@@ -6,29 +6,12 @@ import { Link } from '@/i18n/routing';
 
 const SOCIAL_ICON_SIZE = 28;
 
-const SocialIcon = ({
-  path,
-  darkPath,
-  altText,
-  href,
-}: {
-  path: string;
-  darkPath: string;
-  altText: string;
-  href: string;
-}) => {
+const SocialIcon = ({ path, altText, href }: { path: string; altText: string; href: string }) => {
   return (
     <Link href={href}>
       <Image
-        className="dark:hidden cursor-pointer"
+        className="cursor-pointer dark:invert"
         src={path}
-        width={SOCIAL_ICON_SIZE}
-        height={SOCIAL_ICON_SIZE}
-        alt={altText}
-      />
-      <Image
-        className="hidden dark:block cursor-pointer"
-        src={darkPath}
         width={SOCIAL_ICON_SIZE}
         height={SOCIAL_ICON_SIZE}
         alt={altText}
@@ -52,37 +35,23 @@ export default function HomePage() {
             Duong Phan
           </Typography>
         </div>
+
         <Typography variant="h4" weight="light">
           {t('title')}
         </Typography>
         <Typography className="text-center max-w-[500px]" variant="h4" weight="light">
           {t('description')}
         </Typography>
+
         <div className="social-group flex gap-2">
-          <SocialIcon
-            path="/icons/facebook.svg"
-            darkPath="/icons/facebook-dark.svg"
-            altText="facebook-icon"
-            href="https://www.facebook.com/ptduong.it"
-          />
-          <SocialIcon
-            path="/icons/mail.svg"
-            darkPath="/icons/mail-dark.svg"
-            altText="mail-icon"
-            href="mailto:duongphan090703@gmail.com"
-          />
+          <SocialIcon path="/icons/facebook.svg" altText="facebook-icon" href="https://www.facebook.com/ptduong.it" />
+          <SocialIcon path="/icons/mail.svg" altText="mail-icon" href="mailto:duongphan090703@gmail.com" />
           <SocialIcon
             path="/icons/linkedin.svg"
-            darkPath="/icons/linkedin-dark.svg"
             altText="linkedin-icon"
             href="https://www.linkedin.com/in/thanh-duong-phan-9855a8245/"
           />
-          <SocialIcon
-            path="/icons/github.svg"
-            darkPath="/icons/github-dark.svg"
-            altText="github-icon"
-            href="https://github.com/Duong0907"
-          />
+          <SocialIcon path="/icons/github.svg" altText="github-icon" href="https://github.com/Duong0907" />
         </div>
       </div>
     </>

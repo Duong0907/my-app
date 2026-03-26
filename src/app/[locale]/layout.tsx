@@ -20,9 +20,9 @@ import { getMessages, getTranslations } from 'next-intl/server';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="root-layout text-foreground source-serif-4-regular space-y-18 px-3">
+    <div className="root-layout text-foreground source-serif-4-regular space-y-18 px-3 flex flex-col items-center">
       <NavBar />
-      {children}
+      <div className="md:min-w-[556px]">{children}</div>
       <Footer />
     </div>
   );
@@ -60,7 +60,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={cn('font-sans', geist.variable)} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="logo/small-logo.svg" sizes="any" />
+        <link rel="icon" href="/logo/small-logo.svg" sizes="any" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="stylesheet"

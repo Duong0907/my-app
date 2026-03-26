@@ -7,10 +7,19 @@
     "title": "Kỹ sư phần mềm",
     "description": "Mình yêu thích việc tạo ra những sản phẩm số mượt mà, từ khâu lên ý tưởng cho đến khi hoàn thiện sản phẩm cuối cùng."
   },
+  "about-me": {
+    "title": "Về mình"
+  },
+  "projects": {
+    "title": "Dự án"
+  },
+  "blog": {
+    "title": "Bài viết"
+  },
   "navbar": {
     "home": "Trang chủ",
     "projects": "Dự án",
     "aboutMe": "Về mình",
-    "blog": "Blog"
+    "blog": "Bài viết"
   }
 }
