@@ -1,12 +1,16 @@
 {
-    "home": {
-        "title": "Software Engineer",
-        "description": "Passionate about building seamless digital products through end-to-end"
-    },
-    "navbar": {
-        "home": "Home",
-        "projects": "Projects",
-        "aboutMe": "About me",
-        "blog": "Blog"
-    }
+  "metadata": {
+    "title": "Duong Phan - Software Engineer",
+    "description": "Personal website of Duong Phan, a passionate software engineer."
+  },
+  "home": {
+    "title": "Software Engineer",
+    "description": "Passionate about building seamless digital products through end-to-end"
+  },
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "aboutMe": "About me",
+    "blog": "Blog"
+  }
 }

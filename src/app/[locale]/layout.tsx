@@ -9,7 +9,6 @@ import { ThemeProvider } from 'next-themes';
 import { Footer } from '@/components/shared/footer';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
-import { getMessages } from 'next-intl/server';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -17,10 +16,7 @@ const sourceSerif4 = Source_Serif_4({
   weight: '400',
 });
 
-export const metadata: Metadata = {
-  title: 'Duong Phan',
-  description: 'Created by Duong',
-};
+import { getMessages, getTranslations } from 'next-intl/server';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -31,6 +27,20 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function RootLayout({
   children,
@@ -48,7 +58,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang="en" className={cn('font-sans', geist.variable)}>
+    <html lang={locale} className={cn('font-sans', geist.variable)} suppressHydrationWarning>
       <head>
         <link rel="icon" href="logo/small-logo.svg" sizes="any" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

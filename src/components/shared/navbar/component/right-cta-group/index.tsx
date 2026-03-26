@@ -1,6 +1,6 @@
 'use client';
 
-import { LanguageSwich } from '../language-switch';
+import { LanguageSwitch } from '../language-switch';
 import { NavDialog } from '../nav-dialog';
 import { ThemeSwitch } from '../theme-switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -10,7 +10,7 @@ export function RightCTAGroup() {
     <div className="flex flex-row gap-4 items-center">
       <div className="h-8 flex items-center gap-2">
         <ThemeSwitch />
-        <LanguageSwich />
+        <LanguageSwitch />
       </div>
 
       <div className="md:hidden">

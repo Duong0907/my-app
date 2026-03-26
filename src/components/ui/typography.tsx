@@ -2,7 +2,16 @@ import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { ElementType } from 'react';
 
-const typeographyVariants = cva('', {
+type TypographyVariat = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body';
+type TypographyWeight = 'regular' | 'medium' | 'bold' | 'black' | 'light';
+type TypographyProps = {
+  variant: TypographyVariat;
+  weight: TypographyWeight;
+  className?: string;
+  children: React.ReactNode;
+};
+
+const typographyVariants = cva('', {
   variants: {
     variant: {
       h1: 'text-4xl',
@@ -23,14 +32,7 @@ const typeographyVariants = cva('', {
   },
 });
 
-type TypographyProps = {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body';
-  weight: 'regular' | 'medium' | 'bold' | 'black' | 'light';
-  className?: string;
-  children: string | Element;
-};
-
-const elementMap = {
+const elementMap: Record<string, ElementType> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -43,9 +45,5 @@ const elementMap = {
 export function Typography({ variant, weight, className, children }: TypographyProps) {
   const Component = elementMap[variant] as ElementType;
 
-  return (
-    <Component className={cn('text-foreground bg-background', typeographyVariants({ variant, weight, className }))}>
-      {children}
-    </Component>
-  );
+  return <Component className={cn(typographyVariants({ variant, weight, className }))}>{children}</Component>;
 }

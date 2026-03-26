@@ -7,7 +7,7 @@ import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { useTransition } from 'react';
 
-export function LanguageSwich() {
+export function LanguageSwitch() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const pathname = usePathname();
