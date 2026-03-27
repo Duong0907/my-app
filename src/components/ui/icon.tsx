@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-const ICON_NAMES = ['menu', 'bedtime', 'dark_mode', 'light_mode', 'arrow_right_alt'] as const;
+const ICON_NAMES = ['menu', 'bedtime', 'dark_mode', 'light_mode', 'arrow_right_alt', 'arrow_left_alt'] as const;
 
 type IconProps = {
   name: (typeof ICON_NAMES)[number];

@@ -32,8 +32,8 @@ export default function HomePage() {
     <>
       <div className="home-page flex flex-col items-center gap-7">
         <div className="flex flex-col gap-3 items-center">
-          <Avatar className="size-[150px]">
-            <AvatarImage src="https://github.com/shadcn.png" />
+          <Avatar className="size-[150px] bg-white">
+            <AvatarImage src="/logo/kuriboh.png" />
             <AvatarFallback>Duong Phan</AvatarFallback>
           </Avatar>
           <Typography variant="h1" weight="bold">

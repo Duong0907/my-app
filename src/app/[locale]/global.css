@@ -7,6 +7,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --highlight: oklch(0.488 0.243 264.376);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -115,6 +116,15 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Text color */
+  --text-color-highlight: var(--highlight);
+
+  /* Border color */
+  --border-color-highlight: var(--highlight);
+
+  /* Background color */
+  --background-color-highlight: var(--highlight);
 }
 
 @layer base {
@@ -138,19 +148,49 @@
       'FILL' 1,
       'wght' 600;
   }
+}
 
-  .notion {
-    /* Override the main text font */
-    --notion-font: var(--font-source-serif-4), sans-serif;
+/* 1. The Sliding Black Screen */
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 
-    /* Optional: Override the font used for code blocks */
-    --notion-font-mono: 'Fira Code', monospace;
+.animate-slide-out {
+  /* 0.6s duration, forwards keeps it off-screen when finished */
+  animation: slide-out 0.6s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+}
 
-    /* --notion-max-width:  */
+/* 2. The Page Fade In */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    /* Optional: Override the font used for serif text (like quotes or specific headings) */
-    /* --notion-font-serif: 'Merriweather', serif; */
+.animate-page-fade {
+  /* 0.4s duration, with a 0.3s delay so it waits for the black screen to move */
+  animation: fade-in 0.4s ease-out 0.3s both;
+}
 
-    font-size: 16px;
+/* Override notion styles (outside base layer) */
+.notion {
+  --notion-font: var(--font-source-serif-4), sans-serif;
+
+  /* --notion-font-mono: 'Fira Code', monospace; */
+
+  font-size: 1rem;
+
+  .notion-quote {
+    font-size: 1rem;
   }
 }

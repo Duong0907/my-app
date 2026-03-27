@@ -59,9 +59,9 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={cn('font-sans', geist.variable)} suppressHydrationWarning>
+    <html lang={locale} className={cn('font-sans [scrollbar-gutter:stable]', geist.variable)} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/logo/small-logo.svg" sizes="any" />
+        <link rel="icon" href="/logo/kuriboh.png" sizes="any" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="stylesheet"

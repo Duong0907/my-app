@@ -17,8 +17,8 @@ export function RightCTAGroup() {
         <NavDialog />
       </div>
 
-      <Avatar className="hidden md:block">
-        <AvatarImage src="https://github.com/shadcn.png" />
+      <Avatar className="hidden md:block bg-white">
+        <AvatarImage src="/logo/kuriboh.png" />
         <AvatarFallback>Duong Phan</AvatarFallback>
       </Avatar>
     </div>

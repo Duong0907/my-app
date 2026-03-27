@@ -17,7 +17,7 @@ export function ThemeSwitch() {
       size="xl"
       iconOn={<Icon size="sm" variant="filled" name="dark_mode" />}
       iconOff={<Icon size="sm" name="light_mode" />}
-      className="data-checked:bg-chart-4"
+      className="data-checked:bg-highlight"
     />
   );
 }

@@ -14,9 +14,9 @@ export function NavBarItem({ title, href }: { title: string; href: string }) {
   return (
     <Link
       className={classNames(
-        'group inline-block py-4 px-2 cursor-pointer select-none w-full text-center text-foreground border-b hover:border-foreground',
+        'group inline-block py-4 px-2 cursor-pointer select-none w-full text-center text-foreground border-b hover:border-foreground transition-colors duration-600 ease-in-out',
         {
-          'border-b-chart-4!': isActive,
+          'border-highlight!': isActive,
         },
       )}
       href={href}
@@ -25,8 +25,8 @@ export function NavBarItem({ title, href }: { title: string; href: string }) {
       <Typography
         variant="body"
         weight="regular"
-        className={cn({
-          'text-chart-4!': isActive,
+        className={cn('transition-colors duration-600 ease-in-out', {
+          'text-highlight!': isActive,
         })}
       >
         {title}

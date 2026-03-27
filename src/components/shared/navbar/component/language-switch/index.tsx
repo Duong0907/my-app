@@ -27,7 +27,7 @@ export function LanguageSwitch() {
       size="xl"
       iconOn={<Image src="/icons/vietnam.svg" width={24} height={24} alt="Vietnamese" />}
       iconOff={<Image src="/icons/england.svg" width={24} height={24} alt="England" />}
-      className="data-checked:bg-chart-4"
+      className="data-checked:bg-highlight"
       disabled={isPending}
     />
   );
