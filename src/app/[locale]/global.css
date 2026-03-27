@@ -138,4 +138,19 @@
       'FILL' 1,
       'wght' 600;
   }
+
+  .notion {
+    /* Override the main text font */
+    --notion-font: var(--font-source-serif-4), sans-serif;
+
+    /* Optional: Override the font used for code blocks */
+    --notion-font-mono: 'Fira Code', monospace;
+
+    /* --notion-max-width:  */
+
+    /* Optional: Override the font used for serif text (like quotes or specific headings) */
+    /* --notion-font-serif: 'Merriweather', serif; */
+
+    font-size: 16px;
+  }
 }

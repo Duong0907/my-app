@@ -8,13 +8,16 @@
     "description": "Mình yêu thích việc tạo ra những sản phẩm số mượt mà, từ khâu lên ý tưởng cho đến khi hoàn thiện sản phẩm cuối cùng."
   },
   "about-me": {
-    "title": "Về mình"
+    "title": "Về mình",
+    "description": "Đang trở thành kỹ sư phần mềm"
   },
   "projects": {
-    "title": "Dự án"
+    "title": "Dự án",
+    "description": "Những đứa con tinh thần"
   },
   "blog": {
-    "title": "Bài viết"
+    "title": "Bài viết",
+    "description": "Nhưng suy nghĩ vu vơ"
   },
   "navbar": {
     "home": "Trang chủ",

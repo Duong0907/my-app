@@ -1,9 +1,15 @@
 import { Typography } from '@/components/ui/typography';
 
-export function SectionHeader({ children }: { children: React.ReactNode }) {
+export function SectionHeader({ title, description }: { title: string; description: string }) {
   return (
-    <Typography variant="h1" weight="regular" className="text-center mb-16">
-      {children}
-    </Typography>
+    <div>
+      <Typography variant="h1" weight="regular" className="text-center mb-2">
+        {title}
+      </Typography>
+
+      <Typography variant="h4" weight="light" className="text-center mb-16">
+        {description}
+      </Typography>
+    </div>
   );
 }

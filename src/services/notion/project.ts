@@ -1,6 +1,8 @@
 import { get, map } from 'lodash';
 import { notion } from './notion';
 import { Project } from '@/interfaces/project';
+import { unstable_cache } from 'next/cache';
+import { NOTION_CACHE_REVALIDATE_TIME } from '@/lib/constant';
 
 const NOTION_DATASOURCE_ID = process.env.NOTION_DATASOURCE_ID || '';
 
@@ -23,21 +25,27 @@ const getProjectLists = (response: any): Project[] => {
   return map(results, mapProjectEntity);
 };
 
-export const getAllProjects = async (): Promise<Project[]> => {
-  try {
-    const response = await notion.dataSources.query({
-      data_source_id: NOTION_DATASOURCE_ID,
-      filter: {
-        property: 'Status',
-        select: { equals: 'Published' },
-        type: 'select',
-      },
-    });
+export const getAllProjects = unstable_cache(
+  async (): Promise<Project[]> => {
+    try {
+      const response = await notion.dataSources.query({
+        data_source_id: NOTION_DATASOURCE_ID,
+        filter: {
+          property: 'Status',
+          select: { equals: 'Published' },
+          type: 'select',
+        },
+      });
 
-    return getProjectLists(response as any);
-  } catch (error) {
-    console.error('Error fetching projects from Notion:', error);
+      return getProjectLists(response as any);
+    } catch (error) {
+      console.error('Error fetching projects from Notion:', error);
 
-    return [];
-  }
-};
+      return [];
+    }
+  },
+  ['notion-get-all-projects'],
+  {
+    revalidate: NOTION_CACHE_REVALIDATE_TIME,
+  },
+);

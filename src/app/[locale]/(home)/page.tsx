@@ -23,6 +23,11 @@ const SocialIcon = ({ path, altText, href }: { path: string; altText: string; hr
 export default function HomePage() {
   const t = useTranslations('home');
 
+  const facebookUrl = process.env.FACEBOOK_URL as string;
+  const githubUrl = process.env.GITHUB_URL as string;
+  const emailUrl = process.env.EMAIL_URL as string;
+  const linkedinUrl = process.env.LINKEDIN_URL as string;
+
   return (
     <>
       <div className="home-page flex flex-col items-center gap-7">
@@ -44,14 +49,10 @@ export default function HomePage() {
         </Typography>
 
         <div className="social-group flex gap-2">
-          <SocialIcon path="/icons/facebook.svg" altText="facebook-icon" href="https://www.facebook.com/ptduong.it" />
-          <SocialIcon path="/icons/mail.svg" altText="mail-icon" href="mailto:duongphan090703@gmail.com" />
-          <SocialIcon
-            path="/icons/linkedin.svg"
-            altText="linkedin-icon"
-            href="https://www.linkedin.com/in/thanh-duong-phan-9855a8245/"
-          />
-          <SocialIcon path="/icons/github.svg" altText="github-icon" href="https://github.com/Duong0907" />
+          <SocialIcon path="/icons/facebook.svg" altText="facebook-icon" href={facebookUrl} />
+          <SocialIcon path="/icons/mail.svg" altText="mail-icon" href={emailUrl} />
+          <SocialIcon path="/icons/linkedin.svg" altText="linkedin-icon" href={linkedinUrl} />
+          <SocialIcon path="/icons/github.svg" altText="github-icon" href={githubUrl} />
         </div>
       </div>
     </>

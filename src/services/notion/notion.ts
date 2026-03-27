@@ -1,7 +1,9 @@
-import { Client } from '@notionhq/client';
+import 'server-only';
 
-// Singleton pattern for notion client
-const globalForNotion = globalThis as unknown as { notion: Client };
+import { Client } from '@notionhq/client';
+import { NotionAPI } from 'notion-client';
+
+const globalForNotion = globalThis as unknown as { notion: Client; notionApi: NotionAPI };
 
 export const notion: Client =
   globalForNotion.notion ||
@@ -9,7 +11,9 @@ export const notion: Client =
     auth: process.env.NOTION_TOKEN,
   });
 
-// Hot reload in non-pro environment
+export const notionApi = globalForNotion.notionApi || new NotionAPI();
+
 if (process.env.NODE_ENV !== 'production') {
   globalForNotion.notion = notion;
+  globalForNotion.notionApi = notionApi;
 }

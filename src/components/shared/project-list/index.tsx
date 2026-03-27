@@ -1,17 +1,11 @@
 import { Project } from '@/interfaces/project';
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { isEmpty, map } from 'lodash';
 import Image from 'next/image';
 import { Typography } from '@/components/ui/typography';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Link } from '@/i18n/routing';
+import { FALLBACK_CARD_IMAGE_URL } from '@/lib/constant';
 
 export function ProjectList({ projects }: { projects: Project[] }) {
   return (
@@ -20,39 +14,38 @@ export function ProjectList({ projects }: { projects: Project[] }) {
         const { id, name, features, technologies, imageUrl } = project;
 
         return (
-          <Card key={id} className="cursor-pointer">
-            {isEmpty(imageUrl) ? (
-              <AspectRatio ratio={16 / 9}>
-                <Image
-                  src="https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg"
-                  alt={name}
-                  fill
-                  className="object-cover"
-                />
-              </AspectRatio>
-            ) : (
-              <AspectRatio ratio={1 / 1}>
-                <Image src={imageUrl} alt={name} fill />
-              </AspectRatio>
-            )}
-            <CardHeader>
-              <CardTitle>
-                <Typography variant="h4" weight="bold">
-                  {name}
+          <Link href={`/articles/${id}`} key={id}>
+            <Card className="cursor-pointer">
+              {isEmpty(imageUrl) ? (
+                <AspectRatio ratio={3 / 2}>
+                  <Image src={FALLBACK_CARD_IMAGE_URL} alt={name} fill draggable={false} />
+                </AspectRatio>
+              ) : (
+                <AspectRatio ratio={3 / 2}>
+                  <Image src={imageUrl} alt={name} fill draggable={false} />
+                </AspectRatio>
+              )}
+
+              <CardHeader>
+                <CardDescription>
+                  <Typography variant="body" weight="light">
+                    {technologies}
+                  </Typography>
+                </CardDescription>
+                <CardTitle>
+                  <Typography variant="h4" weight="bold">
+                    {name}
+                  </Typography>
+                </CardTitle>
+              </CardHeader>
+
+              <CardContent>
+                <Typography variant="body" weight="light" className="text-muted-foreground">
+                  {features}
                 </Typography>
-              </CardTitle>
-              <CardDescription>
-                <Typography variant="body" weight="light">
-                  {technologies}
-                </Typography>
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Typography variant="h6" weight="light">
-                {features}
-              </Typography>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </Link>
         );
       })}
     </ul>

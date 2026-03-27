@@ -6,7 +6,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <SectionHeader>{t('title')}</SectionHeader>
+      <SectionHeader title={t('title')} description={t('description')}></SectionHeader>
     </>
   );
 }

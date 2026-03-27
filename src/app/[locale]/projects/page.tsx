@@ -10,7 +10,7 @@ export default async function ProjectPage() {
 
   return (
     <>
-      <SectionHeader>{t('title')}</SectionHeader>
+      <SectionHeader title={t('title')} description={t('description')}></SectionHeader>
       <ProjectList projects={projects} />
     </>
   );

@@ -8,13 +8,16 @@
     "description": "Passionate about building seamless digital products through end-to-end"
   },
   "about-me": {
-    "title": "About me"
+    "title": "About me",
+    "description": "A software engineer"
   },
   "projects": {
-    "title": "Projects"
+    "title": "Projects",
+    "description": "This is all my personal project"
   },
   "blog": {
-    "title": "Blog"
+    "title": "Blog",
+    "description": "Where I expose my thought"
   },
   "navbar": {
     "home": "Home",

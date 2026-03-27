@@ -1,17 +1,10 @@
 import { Icon } from '@/components/ui/icon';
 import { Switch } from '@/components/ui/switch';
-import { useTheme } from 'next-themes';
 import { THEME } from './constant';
-import { useState, useEffect } from 'react';
+import { useCurrentTheme } from '@/custom-hook/use-current-theme';
 
 export function ThemeSwitch() {
-  const { setTheme, resolvedTheme } = useTheme();
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-  // useEffect to avoid hydration error
-  useEffect(() => {
-    setIsDarkTheme(resolvedTheme === THEME.DARK);
-  }, [setIsDarkTheme, resolvedTheme]);
+  const { isDarkTheme, setTheme } = useCurrentTheme();
 
   const handleChangeTheme = (checked: Boolean) => {
     setTheme(checked ? THEME.DARK : THEME.LIGHT);

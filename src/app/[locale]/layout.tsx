@@ -14,6 +14,7 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const sourceSerif4 = Source_Serif_4({
   weight: '400',
+  variable: '--font-source-serif-4',
 });
 
 import { getMessages, getTranslations } from 'next-intl/server';
@@ -22,7 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="root-layout text-foreground source-serif-4-regular space-y-18 px-3 flex flex-col items-center">
       <NavBar />
-      <div className="md:min-w-[556px]">{children}</div>
+      <div className="md:min-w-[556px] md:max-w-[1000px]">{children}</div>
       <Footer />
     </div>
   );

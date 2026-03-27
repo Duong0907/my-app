@@ -20,6 +20,7 @@ export function NavBarItem({ title, href }: { title: string; href: string }) {
         },
       )}
       href={href}
+      draggable={false}
     >
       <Typography
         variant="body"
